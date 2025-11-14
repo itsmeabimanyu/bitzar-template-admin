@@ -146,6 +146,11 @@
         color: white;
     }
 
+    .sidebar .has-submenu.open > .submenu-toggle .bi-chevron-down {
+        transform: rotate(-180deg);
+        transition: transform 0.3s ease;
+    }
+
     /* ====== SUBMENU ====== */
     .sidebar .has-submenu > .submenu {
         max-height: 0;
@@ -172,8 +177,7 @@
         color: #000;
     }
 
-
-    /* ====== SIDEBAR MINIMIZED (desktop only) ====== */
+    /* ====== SIDEBAR MINIMIZED (DESKTOP MODE) ====== */
     @media (min-width: 992px) {
         .sidebar.minimized {
             width: 70px;
@@ -255,52 +259,11 @@
             border-color: transparent #343a40 transparent transparent;
         }
 
-
-
-        
-
-        .sidebar.minimized .has-submenu {
-            position: relative;
-        }
-
-        .sidebar.minimized .has-submenu > .submenu {
-            display: block !important;
-            position: absolute;
-            top: 0;
-            left: 70px;    /* keluar dari sidebar yang diperkecil */
-            background: #343a40;
-            min-width: 180px;
-            padding: 0.5rem 0;
-            border-radius: 0.3rem;
-            z-index: 300;
-        }
-
-        /* Saat hover item yang punya submenu → submenu muncul */
-        .sidebar.minimized .has-submenu:hover > .submenu {
-            display:none;
-        }
-
-        /* Styling item submenu */
-        .sidebar.minimized .submenu .nav-link {
-            padding: 0.5rem 1rem;
-            display: block;
-            white-space: nowrap;
-        }
-
-        /* Hilangkan icon chevron saat minimized */
-        .sidebar.minimized .has-submenu > .submenu-toggle .bi-chevron-down {
-            display: none;
-        }
-                
     }
 
 
 
 
-    .sidebar .has-submenu.open > .submenu-toggle .bi-chevron-down {
-        transform: rotate(-180deg);
-        transition: transform 0.3s ease;
-    }
 
     /* ====== MOBILE: sembunyikan tooltip & atur ulang posisi ====== */
     @media (max-width: 991.98px) {
@@ -441,14 +404,6 @@
     .topbar.sidebar-collapsed + .subbar {
         left: 130px;
     }
-
-    @media (min-width: 992px) {
-        .sidebar-collapsed .topbar-title h5 {
-            margin-left: 20px;
-            transition: margin-left 0.3s;
-        }
-    }
-
     
 </style>
 
@@ -492,7 +447,7 @@
                         <i class="bi bi-archive"></i><span>Dokumen</span>
                         <i class="bi bi-chevron-down ms-auto"></i>
                     </a>
-                    <ul class="submenu list-unstyled">
+                    <ul class="submenu">
                         <li><a href="#" class="nav-link" data-tooltip="Surat Masuk"><span>Surat Masuk</span></a></li>
                         <li><a href="#" class="nav-link" data-tooltip="Surat Kelua"><span>Surat Keluar</span></a></li>
                         <li><a href="#" class="nav-link" data-tooltip="Arsip"><span>Arsip</span></a></li>
@@ -508,6 +463,17 @@
                     <a href="#" class="nav-link" data-tooltip="Settings">
                         <i class="bi bi-gear"></i><span>Settings</span>
                     </a>
+                </li>
+                <li class="nav-item has-submenu">
+                    <a href="#" class="nav-link submenu-toggle" data-tooltip="Dokumen">
+                        <i class="bi bi-archive"></i><span>Dokumen</span>
+                        <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="nav-link" data-tooltip="Surat Masuk"><span>Surat Masuk</span></a></li>
+                        <li><a href="#" class="nav-link" data-tooltip="Surat Kelua"><span>Surat Keluar</span></a></li>
+                        <li><a href="#" class="nav-link" data-tooltip="Arsip"><span>Arsip</span></a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
